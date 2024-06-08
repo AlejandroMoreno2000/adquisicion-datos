@@ -1,0 +1,1 @@
+export LD_LIBRARY_PATH=/home/tfg/Downloads/squashfs-root/resources:$LD_LIBRARY_PATH
