@@ -10,7 +10,6 @@
  
 """
 
-import paramiko
 import oscilloscopes.picoscope as ps
 import ctypes
 import os
@@ -77,12 +76,6 @@ if __name__ == '__main__':
         if len(l) > 1:
             cmdLines.append(l.strip("\n").split(","))
 
-    #initialize ssh connection with the target device
-    ssh = paramiko.SSHClient()
-    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh.connect('192.168.1.177', username='pi')
-    ssh_transp = ssh.get_transport()
-
     #initialize the picoscope
     handle = ctypes.c_int16()
     ps.pico_init(handle)
@@ -107,16 +100,12 @@ if __name__ == '__main__':
             p.start()
             end = time.time() + float(timeout)/1e6
             #launch the pre-command
+            # Cambio en la ejecución remota de comandos a ejecución local
             if pre:
-                chan = ssh_transp.open_session()
-                chan.exec_command(pre)
-                while not chan.exit_status_ready():
-                    time.sleep(0.01)
-                chan.close()
+                os.system(pre)
             #launch command
-            chan = ssh_transp.open_session()
             print('{} "{}" {}'.format(wrapperPath, cmd, timeout))
-            chan.exec_command('{} "{}" {}'.format(wrapperPath, cmd, timeout))
+            os.system('{} "{}" {}'.format(wrapperPath, cmd, timeout))
             while True:  # monitoring process
                 if chan.exit_status_ready() or time.time() >= end:  # If completed or timeout
                     break
