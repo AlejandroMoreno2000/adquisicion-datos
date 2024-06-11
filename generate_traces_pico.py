@@ -10,7 +10,7 @@
  
 """
 
-import oscilloscopes.picoscope as ps
+# import oscilloscopes.picoscope as ps
 import ctypes
 import os
 import random
@@ -31,19 +31,24 @@ class PicoBlock(Thread):
         self.ready = False
 
     def run(self):
-        ps.pico_block(handle, "A", self.dataFile, nbSamples, self.timebase, verbose, self.triggerChan, self.noOfPreTriggerSamples)
+        print(f"Simulating pico_block: Writing simulated data to {self.dataFile}")
+        with open(self.dataFile, 'w') as f:
+            f.write("Simulated data")
         self.ready = True
 
 def randomString(stringLength=16):
     """Generate a random hex-string of fixed length """
-    # """Generate a random string of fixed length """
-    # letters = string.ascii_lowercase + string.ascii_uppercase + string.digits
-    # return ''.join(random.choice(letters) for i in range(stringLength))
     return ''.join(chr(random.randrange(256)).encode("ISO-8859-1").hex() for i in range(stringLength))
+
+def pico_init(handle):
+    print("Simulating pico_init")
+
+def pico_close(handle):
+    print("Simulating pico_close")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('cmdFile', type=str, help="Path to a file containing the commands to launch." )
+    parser.add_argument('cmdFile', type=str, help="Path to a file containing the commands to launch.")
     parser.add_argument('-c', action='store', type=int, default=10, dest='count',
                         help='Number of traces')
     parser.add_argument('-d', action='store', type=str, default='./data', dest='dirpath',
@@ -54,12 +59,12 @@ if __name__ == '__main__':
                         help='Picoscope timebase. freq=5e9/2**timebase if timebase<5; freq=156250000/(timebase-4) if timebase>=5')
     parser.add_argument('-p', action='store', type=int, default=0, dest='noOfPreTriggerSamples',
                        help='Number of pre-triggered samples')
-    parser.add_argument('-pre', action='store',  type=str, dest='prefix',
+    parser.add_argument('-pre', action='store', type=str, dest='prefix',
                         default='', help='Output file prefix')
     parser.add_argument('-t', action='store', type=str, default=None, dest='triggerChan',
                        help='Set trigger channel')
     parser.add_argument('-v', action='store_true', default=False, dest='verbose', help='Print very useful informations')
-    parser.add_argument('-w', action='store', type=str, default="/home/pi/wrapper", 
+    parser.add_argument('-w', action='store', type=str, default="/home/tfg/Desktop/ahma/data-acquisition-main/adquisicion-datos/metasploit_wrapper.sh", 
             dest='wrapperPath', help='path of the wrapper program that will trigger the oscilloscope on the pi')
     args = parser.parse_args()
     timebase = args.timebase
@@ -68,6 +73,10 @@ if __name__ == '__main__':
     nbSamples = args.nbSamples
     noOfPreTriggerSamples = args.noOfPreTriggerSamples
     wrapperPath = args.wrapperPath
+
+    # Crea el directorio destino si no existe
+    if not os.path.exists(args.dirpath):
+        os.makedirs(args.dirpath)
 
     #parse command file
     cmdLines = []
@@ -78,7 +87,7 @@ if __name__ == '__main__':
 
     #initialize the picoscope
     handle = ctypes.c_int16()
-    ps.pico_init(handle)
+    pico_init(handle)
     if timebase < 5:
         freq = 5e9/2**timebase
     else:
@@ -100,19 +109,17 @@ if __name__ == '__main__':
             p.start()
             end = time.time() + float(timeout)/1e6
             #launch the pre-command
-            # Cambio en la ejecución remota de comandos a ejecución local
             if pre:
                 os.system(pre)
             #launch command
             print('{} "{}" {}'.format(wrapperPath, cmd, timeout))
             os.system('{} "{}" {}'.format(wrapperPath, cmd, timeout))
             while True:  # monitoring process
-                if chan.exit_status_ready() or time.time() >= end:  # If completed or timeout
+                if time.time() >= end:  # If timeout
                     break
             while not p.ready: # wait for the picoscope to finish transferring data
                 time.sleep(0.01)
                 pass
-            chan.close()
             p.join()
-    ps.pico_close(handle)
-    ssh.close()
+    pico_close(handle)
+
