@@ -1,0 +1,64 @@
+,/home/nics/Desktop/dataset/goodware/original/base64 /home/nics/Desktop/dataset/goodware/ficheros-auxiliares/texto.txt,base64
+,/home/nics/Desktop/dataset/goodware/original/cp /home/nics/Desktop/dataset/goodware/ficheros-auxiliares/texto.txt /home/nics/Documents/,cp
+,/home/nics/Desktop/dataset/goodware/original/date,date
+,/home/nics/Desktop/dataset/goodware/original/dir,dir
+",/home/nics/Desktop/dataset/goodware/original/echo ""Hola mundo"",echo"
+,/home/nics/Desktop/dataset/goodware/original/env,env
+,/home/nics/Desktop/dataset/goodware/original/printf “AdiosMundo”,printf
+,/home/nics/Desktop/dataset/goodware/original/who,who
+,/home/nics/Desktop/dataset/goodware/upx/cat-upx /home/nics/Desktop/dataset/goodware/ficheros-auxiliares/texto.txt,cat-upx
+,/home/nics/Desktop/dataset/goodware/upx/ls-upx,ls-upx
+,/home/nics/Desktop/dataset/goodware/upx/printenv-upx,printenv-upx
+,/home/nics/Desktop/dataset/goodware/upx/pwd-upx,pwd-upx
+,/home/nics/Desktop/dataset/goodware/upx/tty-upx,tty-upx
+,/home/nics/Desktop/dataset/goodware/upx/uname-upx,uname-upx
+,/home/nics/Desktop/dataset/goodware/upx/uptime-upx,uptime-upx
+,/home/nics/Desktop/dataset/goodware/upx/who-upx,who-upx
+,/usr/bin/mpg321 -n 100 /home/nics/Music/bastille.mp3,playaudio
+",ffmpeg -f lavfi -i color=c=black:s=640x480:d=2 -vf ""drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='Test Video':fontcolor=white:fontsize=24:x=(w-text_w)/2:y=(h-text_h)/2"" -vcodec libx264 /home/nics/Videos/test_video.h264 -y,edit-video"
+,ffmpeg -f lavfi -i testsrc=duration=2:size=640x480:rate=30 -vcodec libx264 /home/nics/Videos/test_vid.h264 -y,takevideo
+,MP4Box -add /home/nics/Videos/test_vid.h264 /home/nics/Videos/test_vid.mp4,encodevideo
+,ping google.com,ping
+,netstat -a,netstat
+,wget https://raw.githubusercontent.com/hishamhm/htop/master/scripts/MakeHeader.py,wget
+,traceroute google.com,tracerout
+,dig google.com,dig
+,gcc -o prueba /home/nics/Desktop/dataset/goodware/proyecto-ejecucion/main.c,compilation
+,/home/nics/Desktop/dataset/malware/original/gafgyt/gafgyt_variante_1,gafgyt-variante1
+,/home/nics/Desktop/dataset/malware/original/gafgyt/gafgyt_variante_2,gafgyt-variante2
+,/home/nics/Desktop/dataset/malware/original/gafgyt/gafgyt_variante_3,gafgyt-variante3
+,/home/nics/Desktop/dataset/malware/original/gafgyt/gafgyt_variante_4,gafgyt-variante4
+,/home/nics/Desktop/dataset/malware/original/gonnacry/gonnacry,gonnacry
+/home/nics/Desktop/dataset/malware/original/gonnacry/decryptor,/home/nics/Desktop/dataset/malware/original/gonnacry/gonnacry_Camellia_256_CBC,gonnacry-Camellia-256-CBC
+/home/nics/Desktop/dataset/malware/original/gonnacry/decryptor_Camellia_256_CBC,/home/nics/Desktop/dataset/malware/original/gonnacry/gonnacry_CHACHA20_POLY1305,gonnacry-CHACHA20-POLY1305
+/home/nics/Desktop/dataset/malware/original/gonnacry/decryptor_CHACHA20_POLY1305,/home/nics/Desktop/dataset/malware/original/gonnacry/gonnacry_SM4_CBC,gonnacry-SM4-CBC
+/home/nics/Desktop/dataset/malware/original/gonnacry/decryptor_SM4_CBC,/home/nics/Desktop/dataset/malware/original/gonnacry/gonnacry_DES-CBC,gonnacry-DES-CBC
+/home/nics/Desktop/dataset/malware/original/gonnacry/decryptor_DES-CBC,/home/nics/Desktop/dataset/malware/original/mirai/mirai.dbg,mirai-dbg
+,/home/nics/Desktop/dataset/malware/original/mirai/mirai_variante_1,mirai-variante-1
+,/home/nics/Desktop/dataset/malware/original/mirai/mirai_variante_2,mirai-variante-2
+,/home/nics/Desktop/dataset/malware/original/mirai/mirai_variante_3,mirai-variante-3
+,/home/nics/Desktop/dataset/malware/original/mirai/mirai_variante_4,mirai-variante-4
+,/home/nics/Desktop/dataset/malware/original/trojan/trojan_variante_1,trojan-variante-1
+,/home/nics/Desktop/dataset/malware/original/trojan/trojan_variante_2,trojan-variante-2
+,/home/nics/Desktop/dataset/malware/original/trojan/trojan_variante_3,trojan-variante-3
+,/home/nics/Desktop/dataset/malware/original/trojan/trojan_variante_4,trojan-variante-4
+,/home/nics/Desktop/dataset/malware/original/trojan/trojan_variante_4,trojan-variante-5
+,/home/nics/Desktop/dataset/malware/original/trojan/trojan_variante_4,trojan-variante-6
+,/home/nics/Desktop/dataset/malware/ofuscado/antianalysis/gonnacry,gonnacry_antianalysis
+/home/nics/Desktop/dataset/malware/ofuscado/antianalysis/decryptor,/home/nics/Desktop/dataset/malware/ofuscado/antianalysis/mirai,mirai_antianalysis
+,/home/nics/Desktop/dataset/malware/ofuscado/flatten/gonnacry,gonnacry_flatten
+/home/nics/Desktop/dataset/malware/ofuscado/flatten/decryptor,/home/nics/Desktop/dataset/malware/ofuscado/flatten/mirai,mirai_flatten
+,/home/nics/Desktop/dataset/malware/ofuscado/opaque/gonnacry,gonnacry_opaque
+/home/nics/Desktop/dataset/malware/ofuscado/opaque/decryptor,/home/nics/Desktop/dataset/malware/ofuscado/opaque/mirai,mirai_opaque
+,/home/nics/Desktop/dataset/malware/ofuscado/split/gonnacry,gonnacry_split
+/home/nics/Desktop/dataset/malware/ofuscado/split/decryptor,/home/nics/Desktop/dataset/malware/ofuscado/split/mirai,mirai_split
+,/home/nics/Desktop/dataset/malware/ofuscado/virtualize/gonnacry,gonnacry_virtualize
+/home/nics/Desktop/dataset/malware/ofuscado/virtualize/decryptor,/home/nics/Desktop/dataset/malware/ofuscado/virtualize/mirai,mirai_virtualize
+,/home/nics/Desktop/dataset/malware/ofuscado/upx/gonnacry_camilla_CBC_upx,gonnacry_camilla_CBC_upx
+/home/nics/Desktop/dataset/malware/ofuscado/upx/decryptor_camilla_CBC_upx,/home/nics/Desktop/dataset/malware/ofuscado/upx/gonnacry_upx,gonnacry_upx
+/home/nics/Desktop/dataset/malware/ofuscado/upx/decryptor_upx,/home/nics/Desktop/dataset/malware/ofuscado/upx/gafgyt_upx_1,gafgyt_1_upx
+,/home/nics/Desktop/dataset/malware/ofuscado/upx/gafgyt_upx_2,gafgyt_2_upx
+,/home/nics/Desktop/dataset/malware/ofuscado/upx/mirai.dbg_upx,mirai_dbg_upx
+,/home/nics/Desktop/dataset/malware/ofuscado/upx/mirai_upx,mirai_upx
+,/home/nics/Desktop/dataset/malware/ofuscado/upx/trojan_upx_1,trojan_1_upx
+,/home/nics/Desktop/dataset/malware/ofuscado/upx/trojan_upx_2,trojan_2_upx
