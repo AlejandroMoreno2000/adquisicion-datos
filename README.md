@@ -1,6 +1,6 @@
 ## Requisitos y estructura del repositorio
 
-Este repositorio contiene todos los archivos y scripts necesarios para la toma, captura y almacenamiento de trazas electromagnéticas generadas durante la ejecución de software malicioso y benigno. Está diseñado específicamente para funcionar con el osciloscopio PicoScope 5000A Series. La implementación parte del proyecto de adquisición de datos desarrollado por el equipo de investigación de Duy-Phuc Pham et al. (github.com/ahma-hub/data-acquisition).
+Este repositorio contiene todos los archivos y scripts necesarios para la toma, captura y almacenamiento de trazas electromagnéticas generadas durante la ejecución de software malicioso y benigno. Está diseñado específicamente para funcionar con el osciloscopio PicoScope 5000A Series. La implementación parte del proyecto de adquisición de datos desarrollado por el equipo de investigación de Duy-Phuc Pham et al. ([repositorio original](github.com/ahma-hub/data-acquisition)).
 La versión incluida en este repositorio ha sido modificada y adaptada para ser plenamente compatible con los modelos PicoScope 5000A y para integrarse correctamente dentro del sistema desarrollado en el marco de este proyecto.
 
 Requisitos previos
